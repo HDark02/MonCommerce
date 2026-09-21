@@ -1,0 +1,934 @@
+###############################################################"
+<Bord_card@MDFloatLayout>:
+    radius: [20, ]
+    pos_hint: {"center_x": .5, "center_y": .5}
+    title: ""
+    money: ""
+    money_color: "black"
+    bor_color: "red"
+    icon_bord: "plus"
+    icon_bord_opacity: 1
+    rate_info: ""
+    rate_info_color: "black"
+    contour_color: "red"
+    MDFloatLayout:
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: root.bor_color
+        radius: [20, ]
+        MDFloatLayout:
+            pos_hint: {"center_x": .52, "center_y": .5}
+            md_bg_color: "white"
+            radius: [20, ]
+            line_color: root.contour_color
+            MDLabel:
+                text: root.title
+                theme_text_color: "Custom"
+                text_color: "black"
+                pos_hint: {"x": .1, "center_y": .75}
+                font_size: "20sp"
+                opacity: 0.7
+            MDLabel:
+                text: root.money
+                theme_text_color: "Custom"
+                text_color: root.money_color
+                pos_hint: {"x": .15, "center_y": .5}
+                font_size: "17sp"
+                bold: True
+                opacity: 0.8
+            MDLabel:
+                text: ""
+                theme_text_color: "Custom"
+                text_color: "black"
+                pos_hint: {"x": .1, "center_y": .25}
+                font_size: "15sp"
+                # bold: True
+                opacity: 0
+
+            
+            MDIcon:
+                icon: root.icon_bord
+                pos_hint: {"center_x": .8, "center_y": .5}
+                theme_text_color: "Custom"
+                text_color: "black"
+                font_size: "40sp"
+                opacity: root.icon_bord_opacity
+#################################""
+<Line_histo@OneLineListItem>:
+    date: ""
+    client: ""
+    numero_du_client: ""
+    montant: ""
+    paiement: ""
+    categorie: ""
+    
+    MDGridLayout:
+        rows: 1
+        cols: 7
+        size_hint: 1, 1
+        pos_hint: {"x": .05, "center_y": .5}
+        MDLabel:
+            text: root.date
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            # text_color: ""
+            font_size: "12sp"
+        MDLabel:
+            text: root.client
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            text_color: 0, 0, 1, .8
+            font_size: "13sp"
+        MDLabel:
+            text: root.montant
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "15sp"
+            theme_text_color: "Custom"
+            text_color: "blue"
+        MDLabel:
+            text: root.categorie
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "15sp"
+            # halign: "center"
+        
+        MDLabel:
+            text: root.paiement
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "15sp"
+
+        MDLabel:
+            text: root.numero_du_client
+            font_size: "12sp"
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDLabel:
+            text: "king"
+            font_size: "12sp"
+            opacity: 0
+            pos_hint: {"center_x": .5, "center_y": .5}
+        # MDBoxLayout:
+            
+        #     MDFlatButton:
+        #         text: root.paiement
+        #         halign: "center"
+        #         pos_hint: {"center_x": .5, "center_y": .5}
+        #         theme_text_color: "Custom"
+        #         text_color: "blue"
+        #     # MDFlatButton:
+        #     #     text: root.action1
+        #     #     halign: "center"
+        #     #     pos_hint: {"center_x": .5, "center_y": .5}
+        #     #     theme_text_color: "Custom"
+        #     #     text_color: "red"
+        MDLabel:
+            # text: root.stock
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "13sp"
+########################################
+<Line_gestion@OneLineListItem>:
+    date: ""
+    descrip: ""
+    catego: ""
+    montant: ""
+    action: ""
+
+    MDGridLayout:
+        rows: 1
+        cols: 5
+        size_hint: 1, 1
+        pos_hint: {"x": .05, "center_y": .5}
+        MDLabel:
+            text: root.date
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            # text_color: ""
+            font_size: "14sp"
+        MDLabel:
+            text: root.descrip
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            text_color: 0, 0, 1, .7
+
+        MDLabel:
+            text: root.catego
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDLabel:
+            text: root.montant
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "15sp"
+            theme_text_color: "Custom"
+            text_color: "red"
+        MDLabel:
+            text: root.action
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "13sp"
+        MDBoxLayout:
+            
+            MDFlatButton:
+                text: root.action
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                theme_text_color: "Custom"
+                text_color: "blue"
+            # MDFlatButton:
+            #     text: root.action1
+            #     halign: "center"
+            #     pos_hint: {"center_x": .5, "center_y": .5}
+            #     theme_text_color: "Custom"
+            #     text_color: "red"
+        MDLabel:
+            # text: root.stock
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "13sp"
+#########################################
+<Depense_histo@OneLineListItem>:
+    date: ""
+    description: ""
+    enter_categorie_categorie_enter: ""
+    montant: ""
+    MDGridLayout:
+        rows: 1
+        cols: 5
+        size_hint: 1, 1
+        pos_hint: {"x": .05, "center_y": .5}
+        MDLabel:
+            text: root.date
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            # text_color: ""
+            font_size: "14sp"
+        MDLabel:
+            text: root.description
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            text_color: 0, 0, 1, .7
+
+        MDLabel:
+            text: root.enter_categorie_categorie_enter
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDLabel:
+            text: root.montant
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "15sp"
+            theme_text_color: "Custom"
+            text_color: "red"
+        MDLabel:
+            # text: root.stock
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "13sp"
+#########################################
+
+<Rapport_action@MDFloatLayout>:
+    produit_nbr_serie: ""
+    date: ""
+    prix: ""
+    client: ""
+    paye: ""
+    nbr_article: ""
+    md_bg_color: "white"
+    pos_hint: {"center_x": .5, "center_y": .5}
+    size_hint: 0.5, .25
+    radius: [20, ]
+    action: ""
+    MDFloatLayout:
+        pos_hint: {"center_x": .5, "center_y": .5}
+        size_hint: 1, 1
+        MDLabel:
+            text: root.produit_nbr_serie
+            pos_hint: {"x": .1, "center_y": .9}
+            theme_text_color: "Custom"
+            text_color: "black"
+            bold: True
+            font_size: "16sp"
+        MDLabel:
+            text: root.date
+            pos_hint: {"x": .1, "center_y": .8}
+            theme_text_color: "Custom"
+            text_color: "black"
+            font_size: "14sp"
+            opacity: 0.5
+        MDLabel:
+            text: root.client
+            pos_hint: {"x": .1, "center_y": .5}
+            theme_text_color: "Custom"
+            text_color: "black"
+        MDLabel:
+            text: root.nbr_article
+            pos_hint: {"x": .1, "center_y": .4}
+            theme_text_color: "Custom"
+            text_color: "black"
+            opacity: 0.5
+            font_size: "12sp"
+        MDLabel:
+            text: root.paye
+            pos_hint: {"center_x": .75, "center_y": .8}
+            theme_text_color: "Custom"
+            halign: "center"
+            text_color: "black"
+            font_size: "14sp"
+            opacity: 0.7
+        MDLabel:
+            text: root.prix
+            pos_hint: {"x": .1, "center_y": .25}
+            theme_text_color: "Custom"
+            text_color: "black"
+            bold:True
+            font_size: "18sp"
+        MDTextButton:
+            text: root.action
+            pos_hint: {"center_x": .75, "center_y": .25}
+            theme_text_color: "Custom"
+            text_color: "black"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            font_size: "12sp"
+######################################
+<Histo_card@MDFloatLayout>:
+    radius: [20, ]
+    pos_hint: {"center_x": .5, "center_y": .5}
+    title: ""
+    nombre: ""
+    nombre_color: "black"
+    bor_color: "red"
+    icon_bord: "plus"
+    rate_info: ""
+    rate_info_color: "black"
+    contour_color: "red"
+    MDFloatLayout:
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: root.bor_color
+        radius: [20, ]
+        MDFloatLayout:
+            pos_hint: {"center_x": .52, "center_y": .5}
+            md_bg_color: "white"
+            radius: [20, ]
+            line_color: root.contour_color
+            MDLabel:
+                text: root.title
+                theme_text_color: "Custom"
+                text_color: "black"
+                pos_hint: {"center_x": .5, "center_y": .75}
+                font_size: "20sp"
+                opacity: 0.7
+                halign: "center"
+            MDLabel:
+                text: root.nombre
+                theme_text_color: "Custom"
+                text_color: root.nombre_color
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "25sp"
+                bold: True
+                halign: "center"
+                opacity: 0.8
+            MDLabel:
+                text: root.rate_info
+                theme_text_color: "Custom"
+                text_color: root.rate_info_color
+                pos_hint: {"x": .1, "center_y": .25}
+                font_size: "15sp"
+                # bold: True
+                opacity: 0.8
+##################################################################################################################"
+<Depense_screen@MDScreen>:
+    name: "Dépenses"
+    histo_list:histo_list
+    scroll_id:scroll_id
+    MDFloatLayout:
+        md_bg_color: "#040A14"
+            
+        MDCard:
+            md_bg_color: "#040A14"
+            size_hint: .9, .2
+            radius: [20, ]
+            pos_hint: {"center_x": .5, "top": 1}
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                MDLabel:
+                    text: "Gestion des Dépenses"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    pos_hint: {"x": .05, "center_y": .75}
+                    font_size: "20sp"
+                    bold: True
+                MDLabel:
+                    text: "Gérez vos dépenses et suivez vos transactions"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    pos_hint: {"x": .05, "center_y": .5}
+                    font_size: "15sp"
+                    opacity: 0.8
+
+                
+                MDFloatLayout:
+                    pos_hint: {"x": .05, "center_y": .2}
+                    md_bg_color:  "#3a56b3ff"
+                    size_hint: .5, 0.25
+                    radius: [10, ]
+                    MDFlatButton:
+                        text: "Ajouter une dépense"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        size_hint: 1, 1
+                        on_release:
+                            app.depense()
+                    MDIcon:
+                        icon: "plus"
+                        pos_hint: {"center_x": .8, "center_y": .5}
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        font_size: "15sp"
+        
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "top": .8}
+            size_hint: 0.9, .75
+            radius: [20, ]
+            md_bg_color: "white"
+            ScrollView:
+                id:scroll_id
+                do_scroll_x: True
+                do_scroll_y: True
+                bar_color: "blue"
+                size_hint_y: 0.99
+                pos_hint: {"center_x": .5, "top": 1}
+                histo_list:histo_list
+                MDList:
+                    id: histo_list
+                    size_hint_y: 1.25
+                    size_hint_x: 1.7
+                    pos_hint: {"center_x": .5, "top": 1}
+                    
+                    OneLineListItem:
+                        MDGridLayout:
+                            rows: 1
+                            cols: 5
+                            pos_hint: {"x": .05, "center_y": .5}
+                            MDLabel:
+                                text: "Date"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Description"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Catégorie"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Montant"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            
+                            MDLabel:
+                                text: "Actions"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                font_size: "13sp"
+                    
+        MDProgressBar:
+            size_hint: 1, .001
+            value: 100
+            pos_hint: {"center_x":.5, "center_y": 0}
+            theme_text_color: "Custom"
+            color: "white"
+        MDFloatLayout:
+            size_hint: 1, .1
+            pos_hint: {"center_x":.5, "center_y": .05}
+##########################################
+<Histo_des_ventes@MDScreen>:
+    name: "histo_des_ventes"
+    all_tous:all_tous
+    just_payes: just_payes
+    just_en_attente: just_en_attente
+    histo_list:histo_list
+    scroll_id:scroll_id
+    MDFloatLayout:
+        md_bg_color: "#040A14"
+        
+        MDCard:
+            md_bg_color: "#040A14"
+            size_hint: .9, .2
+            radius: [20, ]
+            pos_hint: {"center_x": .5, "top": 1}
+            all_tous:all_tous
+            just_payes: just_payes
+            just_en_attente: just_en_attente
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                MDLabel:
+                    text: "Historique des Ventes"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    pos_hint: {"x": .05, "center_y": .75}
+                    font_size: "20sp"
+                    bold: True
+                MDLabel:
+                    text: "Gestion des Ventes & Clients"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    pos_hint: {"x": .05, "center_y": .5}
+                    font_size: "15sp"
+                    opacity: 0.8
+                MDGridLayout:
+                    cols: 3
+                    rows: 1
+                    spacing: 10
+                    padding: 2
+                    size_hint: 0.8, 0.25
+                    pos_hint: {"x": 0.05, "center_y": .2}
+                    MDFloatLayout:
+                        pos_hint: {"x": .05, "center_y": .2}
+                        # md_bg_color:  "#3a56b3ff"
+                        # size_hint: .5, 0.25
+                        radius: [25, ]
+                        MDFlatButton:
+                            id: all_tous
+                            text: "Tous"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            size_hint: 1, 1
+                            md_bg_color:  "blue"
+                            on_release:
+                                all_tous.md_bg_color= "blue"
+                                just_payes.md_bg_color= "gray"
+                                just_en_attente.md_bg_color= "gray"
+                    MDFloatLayout:
+                        pos_hint: {"x": .05, "center_y": .2}
+                        # md_bg_color:  "#3a56b3ff"
+                        # size_hint: .5, 0.25
+                        radius: [25, ]
+                        MDFlatButton:
+                            id: just_payes
+                            text: "Payés"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            md_bg_color:  "gray"
+                            size_hint: 1, 1
+                            on_release:
+                                all_tous.md_bg_color= "gray"
+                                just_payes.md_bg_color= "green"
+                                just_en_attente.md_bg_color= "gray"
+                    MDFloatLayout:
+                        pos_hint: {"x": .05, "center_y": .2}
+                        # size_hint: .5, 0.25
+                        radius: [25, ]
+                        MDFlatButton:
+                            id: just_en_attente
+                            text: "En Attente"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            md_bg_color:  "gray"
+                            size_hint: 1, 1
+                            on_release:
+                                all_tous.md_bg_color= "gray"
+                                just_payes.md_bg_color= "gray"
+                                just_en_attente.md_bg_color= "orange"
+        
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "top": .8}
+            size_hint: 0.9, .75
+            radius: [20, ]
+            md_bg_color: "white"
+            ScrollView:
+                id: scroll_id
+                do_scroll_x: True
+                do_scroll_y: True
+                bar_color: "blue"
+                size_hint_y: 0.99
+                pos_hint: {"center_x": .5, "top": 1}
+                MDList:
+                    id: histo_list
+                    size_hint_y: 1.25
+                    size_hint_x: 1.7
+                    pos_hint: {"center_x": .5, "top": 1}
+                    
+                    OneLineListItem:
+                        MDGridLayout:
+                            rows: 1
+                            cols: 7
+                            pos_hint: {"x": .05, "center_y": .5}
+                            MDLabel:
+                                text: "Date"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Client"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Montant"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Catégorie"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Payement"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "Numéro"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0.6
+                            MDLabel:
+                                text: "king"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                theme_text_color: "Custom"
+                                text_color: "black"
+                                opacity: 0
+                            
+                            
+                    
+                    # Line_histo:
+                    #     date: "15/02/2026"
+                    #     client: "Loyi king"
+                    #     numero_du_client: "+22897606374"
+                    #     montant: "-200 000 F CFA"
+                    #     paiement: "Payé"
+                    #     categorie: "45"        
+                    
+            MDFloatLayout:
+                pos_hint: {"x": .05, "center_y": .05}
+                md_bg_color:  "#3a56b3ff"
+                size_hint: .5, 0.1
+                radius: [10, ]
+                MDFlatButton:
+                    text: "Ajouter une vente"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_size: "15sp"
+                    size_hint: 1, 1
+                    on_release:
+                        app.vente()
+                MDIcon:
+                    icon: "plus"
+                    pos_hint: {"center_x": .8, "center_y": .5}
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_size: "15sp"
+        MDProgressBar:
+            size_hint: 1, .001
+            value: 100
+            pos_hint: {"center_x":.5, "center_y": 0}
+            theme_text_color: "Custom"
+            color: "white"
+        MDFloatLayout:
+            size_hint: 1, .1
+            pos_hint: {"center_x":.5, "center_y": .05}
+##################################################################################################################"
+<Tableau_de_bord@MDScreen>:
+    date_actuelle: date_actuelle
+    name: "tableau_de_bord"
+    total_des_ventes:total_des_ventes
+    payement_recus:payement_recus
+    payement_impayes:payement_impayes
+    total_des_depense:total_des_depense
+    MDFloatLayout:
+        md_bg_color: "#040A14"
+        orientation: 'vertical'
+        MDCard:
+            md_bg_color: "#040A14"
+            size_hint: .9, .2
+            radius: [20, ]
+            pos_hint: {"center_x": .5, "top": 1}
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                MDLabel:
+                    text: "MonCommerce"
+                    theme_text_color: "Custom"
+                    text_color: "#3d86e6"
+                    pos_hint: {"x": .05, "center_y": .75}
+                    font_size: "20sp"
+                    bold: True
+                MDLabel:
+                    text: "Tableau de bord"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    pos_hint: {"x": .05, "center_y": .5}
+                    font_size: "20sp"
+                    bold: True
+                MDLabel:
+                    id: date_actuelle
+                    text: "Aperçu de l'activité du 15/02/2026"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    pos_hint: {"x": .05, "center_y": .24}
+                    font_size: "15sp"
+                    opacity: 0.8
+                MDIcon:
+                    icon: "E:\Learning\code something big\work_en_cour\GEstVentes_simple\icon.png"
+                    pos_hint: {"center_x": .9, "center_y": .5}
+                    theme_text_color: "Custom"
+                    text_color: "black"
+                    font_size: "100sp"
+                    # opacity: root.icon_bord_opacity
+
+        MDGridLayout:
+            cols: 2
+            rows: 3
+            pos_hint: {"center_x":.5, "center_y": .45}
+            size_hint: .9, .7
+            spacing: 15
+            # md_bg_color: "red"
+            Bord_card:
+                size_hint: 1, 1
+                title: "Solde Actuel"
+                money: "0 F CFA"
+                money_color: "black"
+                bor_color: "blue"
+                icon_bord: "5045482.png"
+                icon_bord_opacity: 0.8
+                rate_info: "+12% vs hier"
+                rate_info_color: "green"
+                contour_color: "blue"
+            Bord_card:
+                id: total_des_ventes
+                size_hint: 1, 1
+                title: "Total des Ventes"
+                money: "0 F CFA"
+                money_color: "red"
+                bor_color: "red"
+                icon_bord: "iconos-peligro_1076610-98477.jpg"
+                icon_bord_opacity: 0.5
+                rate_info: "2 factures en attente"
+                rate_info_color: "red"
+            Bord_card:
+                id: payement_recus
+                size_hint: 1, 1
+                title: "Paiements Reçus"
+                money: "0 F CFA"
+                money_color: "black"
+                bor_color: "yellow"
+                icon_bord: "stock-warehouse-1.jpg"
+                icon_bord_opacity: 1
+                rate_info: "Voir les produits"
+                rate_info_color: "black"
+                contour_color: "yellow"
+            Bord_card:
+                id:payement_impayes
+                size_hint: 1, 1
+                title: "Montants en Attente"
+                money: "0 F CFA" 
+                money_color: "black"
+                bor_color: "green"
+                icon_bord: "benefice_icon.jpg"
+                icon_bord_opacity: 1
+                rate_info: "Semaine en cours"
+                rate_info_color: "black"
+                contour_color: "green"
+            Bord_card:
+                id: total_des_depense
+                size_hint: 1, 1
+                title: "Total des Dépenses"
+                money: "0 F CFA" 
+                money_color: "black"
+                bor_color: "green"
+                icon_bord: "benefice_icon.jpg"
+                icon_bord_opacity: 1
+                rate_info: "Semaine en cours"
+                rate_info_color: "black"
+                contour_color: "green"
+        
+
+        
+        # MDFloatLayout:
+        #     pos_hint: {"center_x": .5, "top": 0.12}
+        #     size_hint: 0.9, .1
+        #     radius: [20,]
+        #     md_bg_color: "white"
+        
+        MDProgressBar:
+            size_hint: 1, .001
+            value: 100
+            pos_hint: {"center_x":.5, "center_y": 0}
+            theme_text_color: "Custom"
+            color: "white"
+        MDFloatLayout:
+            size_hint: 1, .1
+            pos_hint: {"center_x":.5, "center_y": .05}
+########################################################################"
+<About_us@MDScreen>:
+    name: "about_us"
+    MDFloatLayout:
+        md_bg_color: "black"
+        Image:
+            source: "logo6_16_21816.png"
+            size_hint: 1, 1
+            pos_hint: {"center_x": .5, "center_y": .55}
+        MDTopAppBar:
+            title: "Contacter Nous"
+            pos_hint: {"top":1}
+            # right_action_items: [["close", lambda x: app.go_back_dashbord()]]
+            padding: 10
+            md_bg_color: "black"
+                        
+        MDLabel:
+            id: thank_user
+            text: "C'est à avec plaisir que nous sachons que vous aimez nos produits."
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_size: "18sp"
+            halign: "center"
+            pos_hint: {"center_y": .85, "center_x": .5}
+        MDLabel:
+            id: thank_user_feelback
+            text: "Merci d'envoyer vos avis à propos de nos produits,pour que ses derniers soient ameliorer."
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_size: "18sp"
+            halign: "center"
+            pos_hint: {"center_y": .7, "center_x": .5}
+        MDLabel:
+            id: thank_user_new
+            text: "Merci de nous contacter :"
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_size: "20sp"
+            halign: "center"
+            pos_hint: {"center_y": .4, "center_x": .5}
+        Link:
+            title: "Github"
+            link: "https://github.com/HDark02"
+            pos_hint: {"center_y": .35, "center_x": .5}
+        Link:
+            title: "Telegram"
+            link: "https://t.me/Highdarktech"
+            pos_hint: {"center_y": .3, "center_x": .5}
+        Link:
+            title: "Facebook"
+            link: "facebook.com/alexdynamo.dynamo/"
+            pos_hint: {"center_y": .25, "center_x": .5}
+        Link:
+            title: "Instagram"
+            link: "instagram.com/dynamoshoes.tg/"
+            pos_hint: {"center_y": .2, "center_x": .5}
+        Link:
+            title: "Whatsapp"
+            link: "http://wa.me/+22897606374"
+            pos_hint: {"center_y": .15, "center_x": .5}
+        Link:
+            title: "Beacoin"
+            link: "beacons.page/thekingdynamo"
+            pos_hint: {"center_y": .1, "center_x": .5}
+        
+            
+<Link@MDFloatLayout>:
+    size_hint:
+    title: ""
+    link: ""
+    MDTextButton:
+        text: root.title+" :"
+        theme_text_color: "Custom"
+        text_color: "white"
+        font_size: "18sp"
+        halign: "center"
+        pos_hint: {"center_y": .5, "center_x": .15}
+        on_release: app.contact_us(root.ids.lin.text)
+
+    MDTextButton:
+        id: lin
+        text: root.link
+        theme_text_color: "Custom"
+        text_color: "orange"
+        font_size: "18sp"
+        halign: "center"
+        pos_hint: {"center_y": .5, "center_x": .6}
+        on_release: app.contact_us(lin.text)
+##################################################################################################################"
+
+##################################################################################################################"
+
+##################################################################################################################"
+
+###################################################
+    
+MDScreen:
+    navig: navig
+    name: "gestion_des_vente_home"
+    MDFloatLayout:
+        md_bg_color: "white"
+        MDBottomNavigation:
+            id: navig
+            pos_hint: {"center_x": .5, "y": 0}
+            panel_color:   "#040A14"
+            theme_text_color: "Custom"
+            text_color_active: "#1465f1"
+            on_text_color_normal: "red"
+            # selected_color_background: "orange"
+            text_color_normal: "gray"
+            line_color: "white"
+            acceuil_id:acceuil_id
+            histo_des_ventes_id:histo_des_ventes_id
+            histo_des_depenses_id:histo_des_depenses_id
+            MDBottomNavigationItem:
+                id: acceuil_id
+                name: "tableau_de_bord"
+                text: "Acceuil"
+                icon: "chart-pie"
+                tableau_de_bord_id:tableau_de_bord_id
+                Tableau_de_bord:
+                    id: tableau_de_bord_id
+            MDBottomNavigationItem:
+                id: histo_des_ventes_id
+                name: "histo_des_ventes"
+                text: "Ventes"
+                icon:  "account-multiple"
+                histo_ventes_id:histo_ventes_id
+                Histo_des_ventes:
+                    id: histo_ventes_id
+                    
+            MDBottomNavigationItem:
+                id: histo_des_depenses_id
+                name: "Dépenses"
+                text: "Dépenses"
+                icon: "file-document-outline"
+                histo_depense_id:histo_depense_id
+                Depense_screen:
+                    id:histo_depense_id
+                    
+            MDBottomNavigationItem:
+                id: about_us_id
+                name: "Nous"
+                text: "Nous"
+                icon: "account-question-outline"
+                About_us:
+                    
+            # MDBottomNavigationItem:
+            #     id: profile_id
+            #     name: "profile"
+            #     text: "Profil"
+            #     icon: "cog-outline"
+            #     MDScreen:
+            #         name: "screen 4"
+            #         MDFloatLayout:
+            #             id: data
+            #             pos_hint: {"center_x": .5, "center_y": .5}
+                

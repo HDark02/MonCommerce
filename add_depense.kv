@@ -16,10 +16,10 @@
     pos_hint: {"center_x": .5, "center_y": .5}
 MDScreen:
     name: "add_depense"
-    # prenom:prenom
-    # nom:nom
-    # list_data_:list_data_
-    # add_picture:add_picture
+    description:description
+    montant:montant
+    data_inter:data_inter
+    enter_categorie:enter_categorie
     MDFloatLayout:
         # md_bg_color: "red"
         pos_hint: {"center_x": .5, "center_y": .5}
@@ -56,6 +56,7 @@ MDScreen:
                 font_size: "18sp"
                 text_color: "black"
             Enter_intput:
+                id: description
                 hint_text: ""
             
             MDLabel:
@@ -65,6 +66,7 @@ MDScreen:
                 font_size: "18sp"
                 text_color: "black"
             Enter_intput:
+                id: montant
                 hint_text: ""
             MDLabel:
                 text: "Date *"
@@ -73,6 +75,7 @@ MDScreen:
                 font_size: "18sp"
                 text_color: "black"
             Enter_intput:
+                id: data_inter
                 hint_text: ""
                 helper_text: "exemple: 09/08/2026"
                 helper_text_color_focus: "green"
@@ -111,7 +114,7 @@ MDScreen:
                 size_hint: 1, 1
                 md_bg_color: 0, 0, 1, 0.8
                 on_release:
-                    app.add_player(add_picture.image, prenom.text, nom.text, int(tir_bar.value/10), int(def_bar.value/10), int(pas_bar.value/10), int(dbl_bar.value/10))
+                    app.add_depense_detail(description.text, montant.text, data_inter.text, enter_categorie.categorie_enter.text)
 <Categorie_choose@MDCard>:
     size_hint: .3, .5
     radius: [20, ]

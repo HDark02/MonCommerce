@@ -1,0 +1,130 @@
+MDScreen:
+    name: "login"
+	user_name:user_name
+	sign_up_text:sign_up_text
+	user_password:user_password
+	
+	MDFloatLayout:
+        pos_hint: {"center_x": .5, "center_y": .5}
+        FitImage:
+            source: "icon.png"
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDFloatLayout:
+        	md_bg_color: 0, 0, 0, 0.5
+			pos_hint: {"center_x": .5, "center_y": .5}
+			MDLabel:
+				id: title_enter
+				text: "Bienvenue dans votre gestionnaire"
+				theme_text_color: "Custom"
+				text_color: "white"
+				pos_hint: {"center_x": .5, "center_y": .92}
+				halign: "center"
+				bold: True
+				font_size: "25sp"
+			MDLabel:
+				id: title_enter
+				text: "``moncommerce``".upper()
+				theme_text_color: "Custom"
+				text_color: "white"
+				pos_hint: {"center_x": .5, "center_y": .85}
+				halign: "center"
+				bold: True
+				font_size: "25sp"
+			MDFloatLayout:
+				md_bg_color: 0, 0, 0, 0.9
+				pos_hint: {"center_x": .5, "center_y": .425}
+				size_hint: .9, .7
+				MDLabel:
+					id: title_enter
+					text: "se connecter".upper()
+					theme_text_color: "Custom"
+					text_color: "orange"
+					pos_hint: {"center_x": .5, "center_y": .85}
+					halign: "center"
+					bold: True
+					opacity: 0.7
+					font_size: "25sp"
+				Input_cart:
+					id: user_name
+					hint_text: "Nom d'utilisateur"
+					pos_y: .7
+				MDIcon:
+					icon: "account"
+					halign: "right"
+					theme_text_color: "Custom"
+					text_color: "blue"
+					pos_hint: {"right": .9, "center_y": .7}
+					on_release:
+				Input_cart:
+					id: user_password
+					hint_text: "Mot de passe"
+					pos_y: .55
+					password: True
+				MDIconButton:
+					id: icon_eye
+					icon: "eye-off"
+					halign: "right"
+					theme_text_color: "Custom"
+					text_color: "blue"
+					pos_hint: {"right": .9, "center_y": .55}
+					on_release: user_password.password = not user_password.password
+				MDRaisedButton:
+					id: sign_up_text
+					text: "Connexion"
+					pos_hint: {"center_x": .5, "center_y": .35}
+					halign: "center"
+					font_size: "25sp"
+					bold: True
+					size_hint: .8, .07
+					theme_text_color: "Custom"
+					text_color: "black"
+					md_bg_color: 1, 1, 1, 0.9
+					on_release: app.data_login_on(user_name.text, user_password.text)
+				MDProgressBar:
+					pos_hint: {"center_x": .5, "center_y": .17}
+					value: 100
+					size_hint: .5, None
+					halign: "center"
+					theme_text_color: "Custom"
+					color: "white"
+				MDTextButton:
+					text: "Je n'ai pas de compte"
+					theme_text_color: "Custom"
+					text_color: "white"
+					pos_hint: {"center_x": .3, "center_y": .1}
+					halign: "center"
+					font_size: "15sp"
+					on_release: app.login(id=2)
+				MDTextButton:
+					text: "S'enregistrer".upper()
+					theme_text_color: "Custom"
+					text_color: "orange"
+					underline: True
+					pos_hint: {"center_x": .72, "center_y": .1}
+					halign: "center"
+					font_size: "20sp"
+					on_release: app.login(id=2)
+
+<Input_cart@MDTextField>:
+	# hint_text: "Entrez le montant"
+	pos_hint: {"center_x": .5, "center_y": .8}
+	font_size: "20sp"
+	size_hint: .8, .1
+	theme_text_color: "Custom"
+	mode: "rectangle"
+	multiline: True
+	hint_text_color_normal: "white"
+	hint_text_color_focus: "white"
+	fill_color_normal: 1, 1, 1, 0
+	text_color_focus: "white"
+	text_color_normal: 1, 1, 1, 0.8
+	line_color_focus: 1, 1, 1, 1
+	line_color_normal: 1, 1, 1, 0.2
+	id: a
+	pos_y: .1
+	hint_text: ""
+	size_hint: .9, None
+	height: self.minimum_height
+	pos_hint: {"center_x": .5, "center_y": root.pos_y}
+	multiline: False
+	font_size: "20sp"

@@ -1,0 +1,65 @@
+Screen:
+    name: "welcome"
+	MDFloatLayout:
+    	pos_hint: {"center_x": .5, "center_y": .5}
+        FitImage:
+            source: "image_1.png"
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDFloatLayout:
+        	md_bg_color: 0, 0, 0, 0.5
+    	    pos_hint: {"center_x": .5, "center_y": .5}
+            FitImage:
+                md_bg_color: "white"
+                radius: [25, ]
+                size_hint: .3, .15
+                source: "icon.png"
+                pos_hint: {"center_x": .5, "center_y": .8}
+            MDLabel:
+                text: "MonCommerce"
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .65}
+                halign: "center"
+                bold: True
+                font_size: "35sp"
+            MDLabel:
+                text: "Gérez • Vendez • Développez"
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .6}
+                halign: "center"
+                font_size: "18sp"
+                opacity: 5
+            MDLabel:
+                text: "Découvrez les meilleures sneakers et chaussures tendance près de chez vous et commandez facilement en quelques clics."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .4}
+                halign: "center"
+                # bold: True
+                font_size: "20sp"
+                opacity: 5
+            # MDLabel:
+            #     text: "Découvrez les meilleurs restaurants près de chez vous et commandez en quelques clics"
+            #     theme_text_color: "Custom"
+            #     text_color: "white"
+            #     pos_hint: {"center_x": .5, "center_y": .4}
+            #     halign: "center"
+            #     # bold: True
+            #     size_hint_x: .9
+            #     font_size: "18sp"
+            #     opacity: 5
+            
+            MDRaisedButton:
+                text: "Voir votre gestion"
+                pos_hint: {"center_x": .5, "center_y": .25}
+                halign: "center"
+                font_size: "25sp"
+                bold: True
+                size_hint: .8, .07
+                theme_text_color: "Custom"
+                text_color: "black"
+                opacity: 3
+                radius: [20, ]
+                md_bg_color: "yellow"
+                on_release: app.login(id=4)
