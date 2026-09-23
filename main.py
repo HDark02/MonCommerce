@@ -113,20 +113,20 @@ class MonCommerce(MDApp):
 
     #Reload tableau de bord for actualisé
     def reload_tableau_de_bord(self):
-        try:
-            vente_impaye_total=self.total_des_ventes_impayes()
-            depense_total= self.total_des_depenses()
-            vente_paye_total=self.total_des_ventes_payes()
-            total_des_ventes=vente_impaye_total + vente_paye_total
-            ##################
-            tableau_de_bord =screen_manager.get_screen("gestion_des_vente_home").navig.acceuil_id.tableau_de_bord_id
-            ##################
-            tableau_de_bord.total_des_ventes.money= f"{total_des_ventes} F"
-            tableau_de_bord.payement_recus.money = f"{vente_paye_total} F"
-            tableau_de_bord.payement_impayes.money = f"{vente_impaye_total} F"
-            tableau_de_bord.total_des_depense.money = f"{depense_total} F"
-        except:
-            pass
+        # try:
+        vente_impaye_total=self.total_des_ventes_impayes()
+        depense_total= self.total_des_depenses()
+        vente_paye_total=self.total_des_ventes_payes()
+        total_des_ventes=vente_impaye_total + vente_paye_total
+        ##################
+        tableau_de_bord =screen_manager.get_screen("gestion_des_vente_home").navig.acceuil_id.tableau_de_bord_id
+        ##################
+        tableau_de_bord.total_des_ventes.money= f"{total_des_ventes} F"
+        tableau_de_bord.payement_recus.money = f"{vente_paye_total} F"
+        tableau_de_bord.payement_impayes.money = f"{vente_impaye_total} F"
+        tableau_de_bord.total_des_depense.money = f"{depense_total} F"
+        # except:
+        #     pass
     #load user_data to screen
     def vente(self):
         screen_manager.transition.direction = "left"
@@ -299,7 +299,7 @@ class MonCommerce(MDApp):
                 produit_data= json.load(file)
         
             try:
-                dat=([i for i in produit_data["produits_paye"]])
+                dat=([i for i in produit_data.get("produits_paye", [])])
                 ventes_paye=sum(int(i["montant"]) for i in dat)
                 return ventes_paye
             except FileNotFoundError:
@@ -332,7 +332,7 @@ class MonCommerce(MDApp):
             with open(fichier_for_products, "r", encoding="utf-8") as file:
                 produit_data= json.load(file)
             try:
-                dat=([i for i in produit_data["produits_impaye"]])
+                dat=([i for i in produit_data.get("produits_impaye", [])])
                 ventes_impaye=sum(int(i["montant"]) for i in dat)
                 return ventes_impaye
             except FileNotFoundError:
@@ -441,7 +441,7 @@ class MonCommerce(MDApp):
                 produit_data= json.load(file)
         
             try:
-                dat=([i for i in produit_data["depense"]])
+                dat=([i for i in produit_data.get("depense", [])])
                 depenses=sum(int(i["montant"]) for i in dat)
                 return depenses
             except FileNotFoundError:
