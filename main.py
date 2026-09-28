@@ -11,29 +11,29 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.list import OneLineListItem
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.screenmanager import ScreenManager
-from kivy.uix.spinner import Spinner
-from kivymd.uix.button import MDRaisedButton
+# from kivy.uix.spinner import Spinner
+# from kivymd.uix.button import MDRaisedButton
 from kivymd.uix.textfield import MDTextField
-from kivy.uix.popup import Popup
+# from kivy.uix.popup import Popup
 from kivymd.toast.kivytoast.kivytoast import toast
 Window.keyboard_anim_args ={'d': .2, 't': 'in_out_expo'}
 Window.softinput_mode = "below_target"
 from kivymd.uix.screenmanager import ScreenManager
 import json
-from kivy.utils import platform
+# from kivy.utils import platform
 from pathlib import Path
 import time
 import webbrowser
 Window.keyboard_anim_args ={'d': .2, 't': 'in_out_expo'}
 Window.softinput_mode = "below_target"
-# Window.size = (400, 840)
-# Window._set_top(1)
-# Window._set_left(1)
+Window.size = (400, 840)
+Window._set_top(1)
+Window._set_left(1)
 
 fichier_for_products = "produits.json"
 
 ################################################"
-import hashlib
+# import hashlib
 
 # # Hash du mot de passe entrer par l'utilisateur 
 # PASSWORD_HASH = hashlib.sha256("1234".encode()).hexdigest()
@@ -46,7 +46,8 @@ import hashlib
 #     else:
 #         self.root.get_screen("login").ids.message.text = "Mot de passe incorrect"
 # # ###################################################""
-
+class Enter_intput(MDTextField):
+    pass
 class Depense_histo(OneLineListItem):
     date= StringProperty()
     description= StringProperty()
@@ -100,18 +101,27 @@ class Rapport_action(MDFloatLayout):
 
 class MonCommerce(MDApp):
     def on_start(self):
-        ##################
-        tableau_de_bord =screen_manager.get_screen("gestion_des_vente_home").navig.acceuil_id.tableau_de_bord_id
-        tableau_de_bord.date_actuelle.text = f"Aperçu de l'activité du {datetime.now().strftime('%d/%m/%Y')}"
-        
-        ##################
-        self.reload_tableau_de_bord()
-    #     screen_manager.transition.direction = "left"
-    #     screen_manager.current = "gestion_des_vente_home"
-        self.load_histo_des_ventes()
-        self.load_histo_des_depenses()
+        if os.path.exists(fichier_for_products):
+            ##################
+            tableau_de_bord =screen_manager.get_screen("gestion_des_vente_home").navig.acceuil_id.tableau_de_bord_id
+            tableau_de_bord.date_actuelle.text = f"Aperçu de l'activité du {datetime.now().strftime('%d/%m/%Y')}"
+            
+            ##################
+            self.reload_tableau_de_bord()
 
-    #Reload tableau de bord for actualisé
+            self.load_histo_des_ventes()
+            self.load_histo_des_depenses()
+            # screen_manager.transition.direction = "left"
+            # screen_manager.current = "gestion_des_vente_home"
+        else:
+            produit_data={
+                "produits_paye": [],
+                "produits_impaye": [],
+                "depense": []
+                }
+            with open(fichier_for_products, "w", encoding="utf-8") as file:
+                json.dump(produit_data, file, indent=4, ensure_ascii=False)
+        #Reload tableau de bord for actualisé
     def reload_tableau_de_bord(self):
         # try:
         vente_impaye_total=self.total_des_ventes_impayes()
@@ -263,13 +273,6 @@ class MonCommerce(MDApp):
             with open(fichier_for_products, "r", encoding="utf-8") as file:
                 produit_data= json.load(file)
         
-        else:
-            #add_data for product, selling to the client
-            produit_data={
-                "produits_paye": [],
-                "produits_impaye": []
-                }
-        
         try:
             #add the product to the json file
             data={"date_achat":date_achat,
@@ -291,6 +294,7 @@ class MonCommerce(MDApp):
                 produit_data["produits_impaye"].append(data)
                 with open(fichier_for_products, "w", encoding="utf-8") as file:
                     json.dump(produit_data, file, indent=4, ensure_ascii=False)
+            self.reload_tableau_de_bord()
         except Exception as e:
             print(f"An error occurred while adding the product: {e}")   
     def total_des_ventes_payes(self):
@@ -304,6 +308,8 @@ class MonCommerce(MDApp):
                 return ventes_paye
             except FileNotFoundError:
                 return 0
+        else:
+            return 0
     def add_vente(self, date_achat, nom_client, numero_telephone, produit, montant, payement):
         list_of_histo=screen_manager.get_screen("gestion_des_vente_home").navig.histo_des_ventes_id.histo_ventes_id.histo_list
         input_screen_data=screen_manager.get_screen("add_vente")
@@ -337,6 +343,8 @@ class MonCommerce(MDApp):
                 return ventes_impaye
             except FileNotFoundError:
                 return 0
+        else:
+            return 0
     
             
     def load_histo_des_ventes(self):
@@ -391,12 +399,6 @@ class MonCommerce(MDApp):
             with open(fichier_for_products, "r", encoding="utf-8") as file:
                 produit_data= json.load(file)
         
-        else:
-            #add_data for expend
-            produit_data={
-                "depense": []
-                }
-        
         try:
             #add the expend to the json file
             data={"description":description,
@@ -414,6 +416,7 @@ class MonCommerce(MDApp):
             
         except Exception as e:
             print(f"An error occurred while adding the product: {e}")   
+        self.reload_tableau_de_bord()
 
     def add_depense(self, description, montant, data_inter, enter_categorie_categorie_enter):
         
@@ -446,6 +449,8 @@ class MonCommerce(MDApp):
                 return depenses
             except FileNotFoundError:
                 return 0
+        else:
+            return 0
     
     def load_histo_des_depenses(self):
         # list_of_histo=screen_manager.get_screen("gestion_des_vente_home").navig.histo_des_ventes_id.histo_ventes_id.histo_list.clear_widgets()
