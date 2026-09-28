@@ -24,11 +24,11 @@ import json
 from pathlib import Path
 import time
 import webbrowser
-Window.keyboard_anim_args ={'d': .2, 't': 'in_out_expo'}
-Window.softinput_mode = "below_target"
-Window.size = (400, 840)
-Window._set_top(1)
-Window._set_left(1)
+# Window.keyboard_anim_args ={'d': .2, 't': 'in_out_expo'}
+# Window.softinput_mode = "below_target"
+# Window.size = (400, 840)
+# Window._set_top(1)
+# Window._set_left(1)
 
 fichier_for_products = "produits.json"
 
