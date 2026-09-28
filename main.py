@@ -112,8 +112,9 @@ class MonCommerce(MDApp):
             self.load_histo_des_ventes()
             self.load_histo_des_depenses()
             # screen_manager.transition.direction = "left"
-            # screen_manager.current = "gestion_des_vente_home"
+            screen_manager.current = "gestion_des_vente_home"
         else:
+            # screen_manager.current = "gestion_des_vente_home"
             produit_data={
                 "produits_paye": [],
                 "produits_impaye": [],
@@ -158,7 +159,7 @@ class MonCommerce(MDApp):
         self.icon = "icon.png"
         global screen_manager
         screen_manager = ScreenManager()
-        # screen_manager.add_widget(Builder.load_file("welcome.kv"))
+        screen_manager.add_widget(Builder.load_file("welcome.kv"))
         # screen_manager.add_widget(Builder.load_file("sign_up.kv"))
         # screen_manager.add_widget(Builder.load_file("login.kv"))
         screen_manager.add_widget(Builder.load_file("gestion_vente.kv"))
@@ -169,16 +170,16 @@ class MonCommerce(MDApp):
         
         return screen_manager
     ############################
-    def login(self, id):
-        if id==2:
-            screen_manager.transition.direction = "left"
-            screen_manager.current ="sign_up"
-        elif id==3:
-            screen_manager.transition.direction = "right"
-            screen_manager.current ="login"
-        elif id==4:
-            screen_manager.transition.direction = "left"
-            screen_manager.current ="login"
+    # def login(self, id):
+    #     if id==2:
+    #         screen_manager.transition.direction = "left"
+    #         screen_manager.current ="sign_up"
+    #     elif id==3:
+    #         screen_manager.transition.direction = "right"
+    #         screen_manager.current ="login"
+    #     elif id==4:
+    #         screen_manager.transition.direction = "left"
+    #         screen_manager.current ="login"
     # def data_login_on(self, nom_user, password):
     #     data={
     #             "nom": "Admin",

@@ -3,10 +3,10 @@ Screen:
 	MDFloatLayout:
     	pos_hint: {"center_x": .5, "center_y": .5}
         FitImage:
-            source: "image_1.png"
+            source: "bg.png"
             pos_hint: {"center_x": .5, "center_y": .5}
         MDFloatLayout:
-        	md_bg_color: 0, 0, 0, 0.5
+        	# md_bg_color: 0, 0, 0.5, 0.8
     	    pos_hint: {"center_x": .5, "center_y": .5}
             FitImage:
                 md_bg_color: "white"
@@ -15,51 +15,135 @@ Screen:
                 source: "icon.png"
                 pos_hint: {"center_x": .5, "center_y": .8}
             MDLabel:
-                text: "MonCommerce"
+                text: "Bienvenue sur MonCommerce"
                 theme_text_color: "Custom"
                 text_color: "white"
-                pos_hint: {"center_x": .5, "center_y": .65}
+                pos_hint: {"center_x": .5, "center_y": .68}
                 halign: "center"
                 bold: True
-                font_size: "35sp"
+                font_size: "22sp"
+                size_hint: 0.8, 0.2
             MDLabel:
-                text: "Gérez • Vendez • Développez"
+                text: "Gérez votre activité simplement"
                 theme_text_color: "Custom"
                 text_color: "white"
-                pos_hint: {"center_x": .5, "center_y": .6}
+                pos_hint: {"center_x": .5, "center_y": .63}
                 halign: "center"
+                size_hint_x: 0.9
                 font_size: "18sp"
-                opacity: 5
+                font_name: "symbola"
+                opacity: 2
             MDLabel:
-                text: "Découvrez les meilleures sneakers et chaussures tendance près de chez vous et commandez facilement en quelques clics."
+                text: "Produits et stock"
                 theme_text_color: "Custom"
                 text_color: "white"
-                pos_hint: {"center_x": .5, "center_y": .4}
+                pos_hint: {"center_x": .5, "center_y": .58}
                 halign: "center"
                 # bold: True
                 font_size: "20sp"
                 opacity: 5
-            # MDLabel:
-            #     text: "Découvrez les meilleurs restaurants près de chez vous et commandez en quelques clics"
-            #     theme_text_color: "Custom"
-            #     text_color: "white"
-            #     pos_hint: {"center_x": .5, "center_y": .4}
-            #     halign: "center"
-            #     # bold: True
-            #     size_hint_x: .9
-            #     font_size: "18sp"
-            #     opacity: 5
+            MDLabel:
+                text: "Ajoutez vos produits et suivez facilement votre stock."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .54}
+                halign: "center"
+                size_hint_x: 0.9
+                # bold: True
+                font_size: "17sp"
+                opacity: 2
+            MDLabel:
+                text: "💰 Ventes et paiements"
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .49}
+                halign: "center"
+                font_name: "symbola"
+                # bold: True
+                font_size: "20sp"
+                opacity: 5
+            MDLabel:
+                text: "Enregistrez vos ventes et suivez les paiements reçus ainsi que les montants impayés."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .45}
+                halign: "center"
+                size_hint_x: 0.9
+                # bold: True
+                font_size: "17sp"
+                opacity: 2
+            MDLabel:
+                text: "💳 Dépenses"
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .4}
+                halign: "center"
+                font_name: "symbola"
+                # bold: True
+                font_size: "20sp"
+                opacity: 5
+            MDLabel:
+                text: "Enregistrez vos dépenses et gardez une meilleure visibilité sur vos finances."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .36}
+                halign: "center"
+                size_hint_x: 0.9
+                # bold: True
+                font_size: "17sp"
+                opacity: 2
+            MDLabel:
+                text: "Tableau de bord"
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .31}
+                halign: "center"
+                # bold: True
+                font_size: "20sp"
+                opacity: 5
+            MDLabel:
+                text: "Consultez rapidement les principales informations de votre activité."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .27}
+                halign: "center"
+                size_hint_x: 0.9
+                # bold: True
+                font_size: "17sp"
+                opacity: 2
+            MDLabel:
+                text: "Tout votre commerce, au même endroit."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .22}
+                halign: "center"
+                # bold: True
+                font_size: "20sp"
+                opacity: 5
+            MDLabel:
+                text: "Consultez rapidement les principales informations de votre activité."
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .17}
+                halign: "center"
+                size_hint_x: 0.9
+                # bold: True
+                font_size: "17sp"
+                opacity: 2
+
             
             MDRaisedButton:
-                text: "Voir votre gestion"
-                pos_hint: {"center_x": .5, "center_y": .25}
+                text: "Commencer"
+                pos_hint: {"center_x": .5, "center_y": .1}
                 halign: "center"
                 font_size: "25sp"
                 bold: True
                 size_hint: .8, .07
                 theme_text_color: "Custom"
-                text_color: "black"
+                text_color: "white"
                 opacity: 3
                 radius: [20, ]
-                md_bg_color: "yellow"
-                on_release: app.login(id=4)
+                md_bg_color: "#040A14"
+                on_release:
+                    root.manager.transition.direction = "up"
+                    root.manager.current = "gestion_des_vente_home"

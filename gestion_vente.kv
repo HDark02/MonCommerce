@@ -332,9 +332,13 @@
     histo_list:histo_list
     scroll_id:scroll_id
     MDFloatLayout:
-        md_bg_color: "#040A14"
+        # md_bg_color: "#040A14"
+        FitImage:
+            source: "bg.png"
+            pos_hint: {"center_x": .5, "center_y": .5}
             
-        MDCard:
+        
+        MDFloatLayout:
             md_bg_color: "#040A14"
             size_hint: .9, .2
             radius: [20, ]
@@ -454,9 +458,13 @@
     histo_list:histo_list
     scroll_id:scroll_id
     MDFloatLayout:
-        md_bg_color: "#040A14"
+        # md_bg_color: "#040A14"
         
-        MDCard:
+        FitImage:
+            source: "bg.png"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            
+        MDFloatLayout:
             md_bg_color: "#040A14"
             size_hint: .9, .2
             radius: [20, ]
@@ -652,9 +660,13 @@
     payement_impayes:payement_impayes
     total_des_depense:total_des_depense
     MDFloatLayout:
-        md_bg_color: "#040A14"
+        # md_bg_color: "#040A14"
         orientation: 'vertical'
-        MDCard:
+        FitImage:
+            source: "bg.png"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            
+        MDFloatLayout:
             md_bg_color: "#040A14"
             size_hint: .9, .2
             radius: [20, ]
@@ -681,7 +693,7 @@
                     theme_text_color: "Custom"
                     text_color: "white"
                     pos_hint: {"x": .05, "center_y": .24}
-                    font_size: "15sp"
+                    font_size: "14sp"
                     opacity: 0.8
                 MDIcon:
                     icon: "icon.png"
@@ -874,7 +886,8 @@ MDScreen:
     navig: navig
     name: "gestion_des_vente_home"
     MDFloatLayout:
-        md_bg_color: "white"
+        # md_bg_color: "white"
+        
         MDBottomNavigation:
             id: navig
             pos_hint: {"center_x": .5, "y": 0}
@@ -888,6 +901,7 @@ MDScreen:
             acceuil_id:acceuil_id
             histo_des_ventes_id:histo_des_ventes_id
             histo_des_depenses_id:histo_des_depenses_id
+        
             MDBottomNavigationItem:
                 id: acceuil_id
                 name: "tableau_de_bord"
