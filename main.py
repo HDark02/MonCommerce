@@ -136,6 +136,8 @@ class MonCommerce(MDApp):
         tableau_de_bord.payement_recus.money = f"{vente_paye_total} F"
         tableau_de_bord.payement_impayes.money = f"{vente_impaye_total} F"
         tableau_de_bord.total_des_depense.money = f"{depense_total} F"
+        solde_total_m = vente_paye_total - depense_total
+        tableau_de_bord.solde_actuel.money = f"{solde_total_m} F"
         # except:
         #     pass
     #load user_data to screen
