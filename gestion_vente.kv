@@ -1,5 +1,5 @@
 ###############################################################"
-<Bord_card>:
+<Bord_card@MDFloatLayout>:
     radius: [20, ]
     pos_hint: {"center_x": .5, "center_y": .5}
     title: ""
@@ -53,14 +53,15 @@
                 font_size: "40sp"
                 opacity: root.icon_bord_opacity
 #################################""
-<Line_histo>:
+<Line_histo@OneLineListItem>:
     date: ""
     client: ""
     numero_du_client: ""
     montant: ""
     paiement: ""
     categorie: ""
-    
+    on_release:
+        app.check_payement(root.date, root.client, root.montant, root.categorie, root.paiement, root.numero_du_client)
     MDGridLayout:
         rows: 1
         cols: 7
@@ -100,28 +101,13 @@
             font_size: "12sp"
             pos_hint: {"center_x": .5, "center_y": .5}
         MDLabel:
-            text: "king"
-            font_size: "12sp"
+            text: "Payement"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            theme_text_color: "Custom"
+            text_color: "black"
             opacity: 0
-            pos_hint: {"center_x": .5, "center_y": .5}
-        # MDBoxLayout:
-            
-        #     MDFlatButton:
-        #         text: root.paiement
-        #         halign: "center"
-        #         pos_hint: {"center_x": .5, "center_y": .5}
-        #         theme_text_color: "Custom"
-        #         text_color: "blue"
-        #     # MDFlatButton:
-        #     #     text: root.action1
-        #     #     halign: "center"
-        #     #     pos_hint: {"center_x": .5, "center_y": .5}
-        #     #     theme_text_color: "Custom"
-        #     #     text_color: "red"
-        MDLabel:
-            # text: root.stock
-            pos_hint: {"center_x": .5, "center_y": .5}
-            font_size: "13sp"
+                            
+
 ########################################
 <Line_gestion>:
     date: ""
@@ -561,7 +547,7 @@
                 MDList:
                     id: histo_list
                     size_hint_y: 1.25
-                    size_hint_x: 1.7
+                    size_hint_x: 1.9
                     pos_hint: {"center_x": .5, "top": 1}
                     
                     OneLineListItem:
@@ -606,21 +592,37 @@
                                 text_color: "black"
                                 opacity: 0.6
                             MDLabel:
-                                text: "king"
+                                text: "Payement"
                                 pos_hint: {"center_x": .5, "center_y": .5}
                                 theme_text_color: "Custom"
                                 text_color: "black"
                                 opacity: 0
                             
                             
+                            
+                            
                     
-                    # Line_histo:
-                    #     date: "15/02/2026"
-                    #     client: "Loyi king"
-                    #     numero_du_client: "+22897606374"
-                    #     montant: "-200 000 F CFA"
-                    #     paiement: "Payé"
-                    #     categorie: "45"        
+                    Line_histo:
+                        date: "15/02/2026"
+                        client: "Loyi king"
+                        numero_du_client: "+22897606374"
+                        montant: "-200 000 F"
+                        paiement: "Payé"
+                        categorie: "45"
+                    Line_histo:
+                        date: "15/02/2026"
+                        client: "Loyi king"
+                        numero_du_client: "+22897606374"
+                        montant: "-200 000 F"
+                        paiement: "Payé"
+                        categorie: "45"
+                    Line_histo:
+                        date: "15/02/2026"
+                        client: "Loyi king"
+                        numero_du_client: "+22897606374"
+                        montant: "-200 000 F"
+                        paiement: "Payé"
+                        categorie: "45"
                     
             MDFloatLayout:
                 pos_hint: {"x": .05, "center_y": .05}
@@ -655,6 +657,7 @@
 <Tableau_de_bord@MDScreen>:
     date_actuelle: date_actuelle
     name: "tableau_de_bord"
+    solde_actuel:solde_actuel
     total_des_ventes:total_des_ventes
     payement_recus:payement_recus
     payement_impayes:payement_impayes
@@ -711,6 +714,7 @@
             spacing: 15
             # md_bg_color: "red"
             Bord_card:
+                id: solde_actuel
                 size_hint: 1, 1
                 title: "Solde Actuel"
                 money: "0 F CFA"

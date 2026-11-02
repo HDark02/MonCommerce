@@ -1,0 +1,235 @@
+MDScreen:
+    name: "facture_user"
+    paye_or_not_statut:paye_or_not_statut
+    nom_du_client:nom_du_client
+    dt:dt
+    categorie:categorie
+    montant:montant
+    numero:numero
+    MDFloatLayout:
+        # md_bg_color: "white"
+        MDFloatLayout:
+            md_bg_color: "blue"
+            size_hint: 1, .1
+            pos_hint: {"center_x": .5, "top": 1}
+        
+            FitImage:
+                source: "icon.png"
+                pos_hint: {"center_x": 0.1, "center_y": .5}
+                theme_text_color: "Custom"
+                radius: [20, ]
+                size_hint: 0.25, 1
+                # opacity: root.icon_bord_opacity
+
+            MDLabel:
+                text: "Facture de vente"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                font_size: "25sp"
+                theme_text_color: "Custom"
+                text_color: "white"
+                bold: True
+            MDProgressBar:
+                size_hint: 1, .02
+                value: 100
+                pos_hint: {"x":.25, "center_y": .25}
+                theme_text_color: "Custom"
+                color: "white"
+            
+        MDIcon:
+            id: check_paye_or_not
+            icon: "check-decagram" 
+            pos_hint: {"center_x":.9, "center_y": .85}
+            font_size: "50sp"
+            theme_text_color: "Custom"
+            text_color: "green" if paye_or_not_statut.text!= "Impayé" else "red"
+
+        MDLabel:
+            text: "Client: "
+            pos_hint: {"x": .05, "center_y": .85}
+            # halign: "center"
+            font_size: "25sp"
+            bold: True
+        MDLabel:
+            id: nom_du_client
+            text: "M. Jean Dupont"
+            pos_hint: {"x": .25, "center_y": .85}
+            font_size: "20sp"
+
+        MDLabel:
+            id: Adresse_du_client
+            text: "Adresse: "
+            pos_hint: {"x": .05, "center_y": .8}
+            # halign: "center"
+            font_size: "25sp"
+            bold: True
+        MDLabel:
+            id: add_client
+            text: "Lomé - Togo"
+            pos_hint: {"x": .35, "center_y": .8}
+            # halign: "center"
+            font_size: "20sp"
+        MDLabel:
+            id: date_time_user
+            text: "Date: "
+            pos_hint: {"x": .35, "center_y": .68}
+            # halign: "center"
+            font_size: "25sp"
+            bold: True
+        MDLabel:
+            id: dt
+            text: "02/11/2026"
+            pos_hint: {"x": .55, "center_y": .68}
+            # halign: "center"
+            font_size: "20sp"
+        
+        MDLabel:
+            id: stats
+            text: "Statut: "
+            pos_hint: {"x": .35, "center_y": .62}
+            # halign: "center"
+            font_size: "25sp"
+            bold: True
+        Spinner:
+            id: paye_or_not_statut
+            text: "Payé"
+            values: ["Payé", "Impayé"]
+            size_hint: 0.3, 0.05
+            pos_hint: {"x": .55, "center_y": .62}
+        MDLabel:
+            id: payement_stat
+            text: (paye_or_not_statut.text).upper()
+            pos_hint: {"x": .55, "center_y": .62}
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_size: "25sp"
+            bold: True
+            size_hint: 0.3, 0.05
+            md_bg_color: "green" if paye_or_not_statut.text!= "Impayé" else "red"
+            # opacity: 0
+        MDLabel:
+            text: "Numéro du client: "
+            pos_hint: {"x": .05, "center_y": .75}
+            # halign: "center"
+            font_size: "22sp"
+            bold: True
+        MDLabel:
+            id: numero
+            text: "+22897606374"
+            pos_hint: {"x": .52, "center_y": .75}
+            # halign: "center"
+            font_size: "20sp"
+        MDGridLayout:
+            md_bg_color: "white"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            cols: 2
+            rows: 2
+            spacing: 1
+            line_color: "black"
+            # padding: 1
+            size_hint: 0.95, .1
+            MDLabel:
+                text: "Désignation"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: "white"
+                md_bg_color: "blue"
+                bold: True
+                
+            MDLabel:
+                text: "Montant total"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: "white"
+                md_bg_color: "blue"
+                bold: True
+                
+            MDLabel:
+                id: categorie
+                text: "Shoes 44"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: "black"
+                md_bg_color: "white"
+            MDLabel:
+                id: montant
+                text: "5000f"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: "black"
+                md_bg_color: "white"
+        MDLabel:
+            text: "Merci pour votre confiance !"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            halign: "center"
+            font_size: "20sp"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            # md_bg_color: "red"
+            size_hint: 0.95, .05
+            bold: True
+        MDLabel:
+            text: "Contacter moi sur le +22897606374"
+            pos_hint: {"center_x": .5, "center_y": .25}
+            halign: "center"
+            font_size: "20sp"
+            theme_text_color: "Custom"
+            text_color: "black"
+            # md_bg_color: "blue"S
+            size_hint: 0.95, .05
+            # bold: True
+                    
+        MDGridLayout:
+            cols: 2
+            rows: 1
+            pos_hint: {"center_x": .5, "center_y": .1}
+            halign: "center"
+            font_size: "20sp"
+            theme_text_color: "Custom"
+            text_color: "black"
+            # line_color: "black"
+            md_bg_color: "white"
+            size_hint: 0.95, .07
+            radius: [20, ]
+            spacing: 2
+
+            MDRoundFlatButton:
+                text: "Annuler"
+                pos_hint: {"center_x": .5, "center_y": .25}
+                halign: "center"
+                font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: "white"
+                md_bg_color: "blue"
+                color: "red"
+                size_hint: 0.95, .05
+                line_color: "black"
+                radius: [20, ]
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "gestion_des_vente_home"
+            
+            MDRoundFlatButton:
+                text: "Enregistrer"
+                pos_hint: {"center_x": .5, "center_y": .25}
+                halign: "center"
+                font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: "white"
+                md_bg_color: "blue"
+                size_hint: 0.95, .05
+                line_color: "black"
+                radius: [20, ]
+                on_release:
+                    app.add_check_detail_vente(dt.text, nom_du_client.text, numero.text, categorie.text, montant.text, paye_or_not_statut.text)
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "gestion_des_vente_home"
