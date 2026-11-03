@@ -11,10 +11,10 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.list import OneLineListItem
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.screenmanager import ScreenManager
-# from kivy.uix.spinner import Spinner
-# from kivymd.uix.button import MDRaisedButton
+from kivy.uix.spinner import Spinner
+from kivymd.uix.button import MDRaisedButton
 from kivymd.uix.textfield import MDTextField
-# from kivy.uix.popup import Popup
+from kivy.uix.popup import Popup
 from kivymd.toast.kivytoast.kivytoast import toast
 Window.keyboard_anim_args ={'d': .2, 't': 'in_out_expo'}
 Window.softinput_mode = "below_target"
@@ -122,7 +122,7 @@ class MonCommerce(MDApp):
                 }
             with open(fichier_for_products, "w", encoding="utf-8") as file:
                 json.dump(produit_data, file, indent=4, ensure_ascii=False)
-        #Reload tableau de bord for actualisé
+    #     #Reload tableau de bord for actualisé
     def reload_tableau_de_bord(self):
         # try:
         vente_impaye_total=self.total_des_ventes_impayes()
@@ -167,6 +167,7 @@ class MonCommerce(MDApp):
         screen_manager.add_widget(Builder.load_file("gestion_vente.kv"))
         screen_manager.add_widget(Builder.load_file("add_depense.kv"))
         screen_manager.add_widget(Builder.load_file("add_vente.kv"))
+        screen_manager.add_widget(Builder.load_file("interface_of_the_user_data.kv"))
         # screen_manager.add_widget(Builder.load_file("parametre_and_code.kv"))
 
         
@@ -266,6 +267,20 @@ class MonCommerce(MDApp):
     #                             )
     #             dialog.add_widget(float_layout)
     #         dialog.open()
+    ##############################################################
+    def check_payement(self, date, client, montant, categorie, payement, numero):
+        screen_manager.transition.direction= "left"
+        screen_manager.current = "facture_user"
+        print(date, client, montant, categorie, numero)
+        
+        screen_manager.get_screen("facture_user").paye_or_not_statut.text=payement
+        screen_manager.get_screen("facture_user").nom_du_client.text=client
+        screen_manager.get_screen("facture_user").dt.text=date
+        screen_manager.get_screen("facture_user").categorie.text=categorie
+        screen_manager.get_screen("facture_user").montant.text=montant
+        screen_manager.get_screen("facture_user").numero.text=numero
+
+
     ############################################
     def add_vente_detail(self, date_achat, nom_client, numero_telephone, produit, montant, payement):
         # partie à bien analyser pour mieux les adaptées
@@ -491,6 +506,37 @@ class MonCommerce(MDApp):
 
         except (json.JSONDecodeError, OSError, TypeError):
             return 0
+    ##########################################
+    def add_check_detail_vente(self, date_achat, nom_client, numero_telephone, produit, montant, payement):
+            # partie à bien analyser pour mieux les adaptées
+            if os.path.exists(fichier_for_products):
+                with open(fichier_for_products, "r", encoding="utf-8") as file:
+                    produit_data= json.load(file)
+                    
+            for impaye in produit_data["produits_impaye"]:
+                if impaye["nom_client"] == nom_client:
+
+                    impaye["payement"] = payement
+                    if payement == "Payé":
+                        produit_data["produits_impaye"].remove(impaye)
+                        produit_data["produits_paye"].append(impaye)
+                    # else:
+                    #     produit_data["produits_paye"].remove(impaye)
+                    #     produit_data["produits_impaye"].append(impaye)
+                        
+                    with open(fichier_for_products, "w", encoding="utf-8") as file:
+                        json.dump(produit_data, file, indent=4, ensure_ascii=False)
+                    self.on_start()
+                    return True
+
+            return False
+            
+            #     
+            # except Exception as e:
+            #     print(f"An error occurred while adding the product: {e}")  
+
+
+
     #####################################################################
     def contact_us(self, index):
         webbrowser.open(index)
